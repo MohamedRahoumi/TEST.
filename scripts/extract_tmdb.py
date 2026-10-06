@@ -18,7 +18,8 @@ OUTPUT_DIR = Path(__file__).resolve().parents[1] / "data" / "raw"
 OUTPUT_FILE = OUTPUT_DIR / "movies.json"
 
 NB_PAGES = 150
-LANGUAGE = "fr-FR"
+# LANGUAGE = "fr-FR"
+LANGUAGE = "en-US"
 
 
 if not API_KEY:

@@ -42,7 +42,7 @@ for colonne in colonnes_numeriques:
     )
 
 
-print("\n========== VALEURS INCOHERENTES ==========")
+print("\n= VALEURS INCOHERENTES =")
 
 print("vote_average > 10 :",
       (df["vote_average"] > 10).sum())

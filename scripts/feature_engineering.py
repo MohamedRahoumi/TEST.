@@ -18,10 +18,6 @@ print("=" * 60)
 print("\nNombre de films :", len(df))
 
 
-# ============================================================
-# 1. DATE
-# ============================================================
-
 df["release_date"] = pd.to_datetime(
     df["release_date"],
     errors="coerce"
@@ -36,10 +32,6 @@ df["release_decade"] = (
 ) * 10
 
 
-# ============================================================
-# 2. GENRES ET KEYWORDS
-# ============================================================
-
 df["genres"] = df["genres"].apply(ast.literal_eval)
 
 df["keywords"] = df["keywords"].apply(ast.literal_eval)
@@ -49,9 +41,6 @@ df["genre_count"] = df["genres"].apply(len)
 df["keyword_count"] = df["keywords"].apply(len)
 
 
-# ============================================================
-# 3. CATÉGORIE DE DURÉE
-# ============================================================
 
 df["runtime_category"] = pd.cut(
     df["runtime"],
@@ -65,9 +54,6 @@ df["runtime_category"] = pd.cut(
 )
 
 
-# ============================================================
-# 4. INDICATEURS
-# ============================================================
 
 df["is_long_movie"] = (
     df["runtime"] > 120
@@ -89,11 +75,6 @@ df["has_revenue"] = (
     df["revenue"] > 0
 ).astype(int)
 
-
-# ============================================================
-# 5. ÂGE DU FILM
-# ============================================================
-
 annee_reference = df["release_year"].max()
 
 df["movie_age"] = (
@@ -101,9 +82,6 @@ df["movie_age"] = (
 )
 
 
-# ============================================================
-# 6. SAUVEGARDE
-# ============================================================
 
 OUTPUT_FILE.parent.mkdir(
     parents=True,
@@ -116,10 +94,6 @@ df.to_csv(
     encoding="utf-8"
 )
 
-
-# ============================================================
-# 7. AFFICHAGE
-# ============================================================
 
 nouvelles_variables = [
     "release_year",
